@@ -105,7 +105,7 @@ def StratifiedKFold_func(x, y,Num_iter=100,model = xgb.XGBClassifier(max_depth=4
 ## Read data functions
 ###############################
 def read_train_data(path_train):
-    data_df = pd.read_excel(path_train, encoding='gbk', index_col=[0, 1])  # train_sample_375_v2 train_sample_351_v4
+    data_df = pd.read_excel(path_train, index_col=[0, 1])  # removed encoding parameter for pandas v1.1.0
     data_df = data_df.groupby('PATIENT_ID').last()
     # data_df = data_df.iloc[:,1:]
     # data_df = data_df.set_index(['PATIENT_ID'])
@@ -128,7 +128,7 @@ def data_preprocess():
     data_df_unna = read_train_data(path_train)
 
     # data_pre_df = pd.read_csv('./data/sample29_v3.csv',encoding='gbk')
-    data_pre_df = pd.read_excel('./data/time_series_test_110_preprocess.xlsx', index_col=[0, 1], encoding='gbk')
+    data_pre_df = pd.read_excel('./data/time_series_test_110_preprocess.xlsx', index_col=[0, 1]) # removed encoding parameter for pandas v1.1.0
     data_pre_df = utils.merge_data_by_sliding_window(data_pre_df, n_days=1, dropna=True, subset=utils.top3_feats_cols,
                                                      time_form='diff')
     data_pre_df = data_pre_df.groupby('PATIENT_ID').first().reset_index()
