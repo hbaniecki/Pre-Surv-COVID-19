@@ -10,7 +10,7 @@ Added files:
 - `data_exploration.png`, `model_explanation.png`, `xgboost-explainer.pkl`, `ale.png`, `.gitignore`
 - `utils_features_selection.py` has two lines changed to work with `pandas v1.1.0`
 
-The dashboard is available at https://hbaniecki.github.io/Pre-Surv-COVID-19/
+The dashboard is available at https://rai-covid.drwhy.ai/
 
 ## Reference
 
